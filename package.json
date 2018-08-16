@@ -1,0 +1,16 @@
+{
+  "name": "foodmap",
+  "version": "1.0.0",
+  "description": "FoodMap",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "mapa",
+    "restaurantes",
+    "comida"
+  ],
+  "author": "Carolina Lastra",
+  "license": "ISC"
+}
