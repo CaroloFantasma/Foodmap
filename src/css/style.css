@@ -1,0 +1,80 @@
+body {
+  background-image: url(../../assets/img/food4.jpeg);
+  background-repeat: no-repeat;
+}
+
+p {
+  margin-top: 2%;
+  text-align: center;
+  color: black;
+  font-size: 40px;
+}
+
+#foodMap {
+  text-align: center;
+  color: black;
+  font-size: 40px;
+}
+
+#mapContainer {
+  height: 300px;
+  width: 100%;
+  border: solid medium black;
+}
+
+#searchInput {
+  margin-top: 5%;
+  margin-left: 20%;
+  border: solid thin black;
+  border-radius: 6px;
+  text-align: center;
+}
+
+#screenTwo {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+}
+
+.col-centrada {
+  float: none;
+  margin: 0 auto;
+}
+
+h3 {
+  text-align: center;
+  color: black;
+  margin-top: 5%;
+}
+
+@media(min-width: 768px) {
+
+  #mainTitle {
+    margin-top: 20%;
+    font-size: 50px;
+  }
+
+  #searchInput {
+    margin-top: 5%;
+    margin-left: 30%;
+    border: solid thin black;
+    background-color: rgb(212, 238, 206);
+    width: 40%;
+  }
+
+  #mapContainer {
+    height: 500px;
+    width: 100%;
+  }
+
+  p {
+    font-size: 80px;
+  }
+
+  #foodMap {
+    font-size: 80px;
+  }
+}  
