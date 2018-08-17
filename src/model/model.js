@@ -53,7 +53,13 @@ function initMap()
       }
       console.log(places);
 
-      dataContainer.innerHTML += place.name;
+      searchResult.innerHTML += `
+        <table class="table table-bordered">
+          <tbody id="searchResult">
+          <td><button>${place.name}</button></td>
+          </tbody>
+        </table>
+      `;
 
       let icon = {
         url: place.icon,
