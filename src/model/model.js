@@ -43,15 +43,8 @@ function initMap() {
       if (!place.geometry) {
         return;
       }
+      placesInfo(place)
       console.log(places);
-
-      searchResult.innerHTML += `
-        <table class="table table-bordered">
-          <tbody id="searchResult">
-          <td><button onClick="window.placesInfo(place)">${place.name}</button></td>
-          </tbody>
-        </table>
-      `;
 
       let icon = {
         url: place.icon,
@@ -69,7 +62,7 @@ function initMap() {
           title: place.name,
           position: place.geometry.location
         }));
-        
+
       google.maps.event.addListener(markers, 'click', function () {
         infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
           'Place ID: ' + place.place_id + '<br>' +
@@ -101,8 +94,8 @@ function initMap() {
       infoWindow.open(map);
       map.setCenter(pos);
     }, function () {
-        handleLocationError(true, infoWindow, map.getCenter());
-      });
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
   }
   else {
     // El navegador no 
@@ -133,33 +126,8 @@ function initMap() {
       service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, callback);
     }
-
-    function callback(results, status) {
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-          let place = results[i];
-          createMarker(results[i]);
-
-          function placesModal(place) {
-            console.log(place);
-          
-            let marker = new google.maps.Marker({
-              map: map,
-              position: place.geometry.location
-            });
-          
-            // Asignamos el evento click del marcador
-            google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + place.formatted_address + '<br><strong>Califición: </strong>' + place.rating + '</div>');
-              infowindow.open(map, this);
-            });
-          
-            modalContainer.innerHTML += '<div class="names"><p>' + place.name.toUpperCase() + '</p><span class="button modal-button" data-target="a' + place.id + '"><i class="fas fa-utensils"></i></span></div> <div id="a' + place.id + '" class="modal modal-fx-fadeInScale"><div class="modal-background"></div><div class="modal-content">' + place.name + '<p>Direccion: ' + place.formatted_address + 'p><p>Calificacion de Usuarios: ' + place.rating + '</p><button class="modal-close is-large" aria-label="close"></button></div></div>';
-          }
-        }
-      }
-    }
   }
 }
+
 
 
